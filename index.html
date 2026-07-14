@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Sea Descent | Parallax Voyage</title>
-    <!-- Google Fonts for premium typography -->
+    <title>Deep Sea Descent | Premium Parallax Showcase</title>
+    <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheet -->
@@ -15,167 +15,199 @@
 </head>
 <body>
 
-    <!-- Parallax Viewport Header -->
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-compass glow-icon"></i>
+            <span>ABYSSAL <span class="accent-text">EXPEDITION</span></span>
+        </div>
+        <div class="nav-actions">
+            <span class="sound-indicator" onclick="toggleAudio()">
+                Sound: <span id="sound-status" class="status-off">OFF</span>
+                <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+            </span>
+        </div>
+    </header>
+
+    <!-- Parallax Viewport -->
     <div class="parallax-container">
-        
-        <!-- Layer Base: Deep Sea Background Image -->
+        <!-- Layer 0: Undersea Background Image -->
         <div class="layer layer-bg" style="background-image: url('images/sea_bg.png');"></div>
 
-        <!-- Layer 1: Glowing sunbeams (CSS gradient overlay) -->
+        <!-- Layer 1: Sunbeams Light Rays overlay -->
         <div class="layer layer-sunbeams"></div>
+
+        <!-- Layer 2: Submarine (Midground) -->
+        <div class="layer layer-submarine">
+            <div class="asset-wrapper submarine-wrapper">
+                <img src="images/submarine.png" alt="Yellow Submarine" class="parallax-asset sub-img">
+                
+                <!-- Interactive Hotspot on Submarine -->
+                <div class="hotspot" style="top: 45%; left: 45%;">
+                    <div class="hotspot-pin"></div>
+                    <div class="hotspot-tooltip">
+                        <h4>Chrono-V Submersible</h4>
+                        <p>Our deep-water explorer features dual carbon-titanium shells, rated to withstand pressures up to 600 atmospheres.</p>
+                        <span class="hotspot-stat">Depth Max: 6,000m</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer 3: Jellyfish (Foreground Drift) -->
+        <div class="layer layer-jellyfish">
+            <div class="asset-wrapper jellyfish-wrapper">
+                <img src="images/jellyfish.png" alt="Bioluminescent Jellyfish" class="parallax-asset jelly-img">
+                
+                <!-- Interactive Hotspot on Jellyfish -->
+                <div class="hotspot" style="top: 30%; left: 50%;">
+                    <div class="hotspot-pin"></div>
+                    <div class="hotspot-tooltip">
+                        <h4>Aurelia Phosphora</h4>
+                        <p>A species that glows in the dark through chemical reactions, utilizing luciferase proteins to create neon violet pulses.</p>
+                        <span class="hotspot-stat">Luminosity: 80%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer 4: Temple Gate (Deep Background) -->
+        <div class="layer layer-temple">
+            <div class="asset-wrapper temple-wrapper">
+                <img src="images/temple.png" alt="Sunken Temple Gate" class="parallax-asset temple-img">
+                
+                <!-- Interactive Hotspot on Temple -->
+                <div class="hotspot" style="top: 25%; left: 50%;">
+                    <div class="hotspot-pin"></div>
+                    <div class="hotspot-tooltip">
+                        <h4>Abyssal Archway</h4>
+                        <p>An ancient, moss-covered monolith displaying glowing geometric runes. Est. origin: pre-glacial period.</p>
+                        <span class="hotspot-stat">Age: 12,000+ Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Title Layer -->
         <div class="layer layer-title">
-            <span class="gate-label"><i class="fa-solid fa-anchor glow-icon"></i> Dive Coordinates Locked</span>
+            <span class="badge-expedition">Expedition Log 04</span>
             <h1>DEEP SEA DESCENT</h1>
-            <p>Scroll down to descend into the abyss</p>
-        </div>
-
-        <!-- Layer 2: Middle Distance - Whale silhouette swimming -->
-        <div class="layer layer-midground">
-            <svg class="whale-svg" viewBox="0 0 500 200" fill="rgba(15, 32, 67, 0.45)">
-                <!-- Beautiful stylized whale path -->
-                <path d="M480,100 C430,70 380,60 330,70 C280,80 230,95 180,95 C130,95 90,80 50,60 C30,50 15,30 5,20 C0,15 5,35 15,45 C25,55 50,75 80,85 C100,90 120,95 140,105 C160,115 180,130 210,140 C240,150 280,155 320,150 C370,140 410,130 450,115 L480,125 L470,110 Z" />
-                <path d="M50,60 L20,35 C15,30 20,45 30,55 Z" fill="rgba(15, 32, 67, 0.5)" /> <!-- Fin -->
-            </svg>
-        </div>
-
-        <!-- Layer 3: Foreground - Kelp, bubbles and turtle swimming closer -->
-        <div class="layer layer-foreground">
-            <!-- Sea Turtle SVG -->
-            <svg class="turtle-svg" viewBox="0 0 120 120" fill="rgba(6, 182, 212, 0.7)">
-                <path d="M60,20 C55,10 65,10 60,20 C62,25 58,25 60,30 C75,32 90,45 92,60 C93,68 85,75 80,75 C70,75 65,70 60,65 C55,70 50,75 40,75 C35,75 27,68 28,60 C30,45 45,32 60,30 Z" />
-                <path d="M85,35 C95,25 105,35 90,45 Z" /> <!-- Front Fin Right -->
-                <path d="M35,35 C25,25 15,35 30,45 Z" /> <!-- Front Fin Left -->
-                <path d="M78,72 C85,82 90,80 82,76 Z" /> <!-- Back Fin Right -->
-                <path d="M42,72 C35,82 30,80 38,76 Z" /> <!-- Back Fin Left -->
-            </svg>
-            
-            <!-- Left foreground kelp -->
-            <div class="kelp kelp-left"></div>
-            <!-- Right foreground kelp -->
-            <div class="kelp kelp-right"></div>
+            <p class="subtitle">A multi-axis parallax journey into the Earth's final frontier.</p>
+            <div class="scroll-prompt" onclick="document.getElementById('sunlight').scrollIntoView({behavior: 'smooth'})">
+                <span>SCROLL TO DIVE</span>
+                <i class="fa-solid fa-arrow-down-long scroll-arrow"></i>
+            </div>
         </div>
     </div>
 
-    <!-- Scrollable Ocean Depth Log -->
+    <!-- Depth Indicator HUD -->
+    <div class="hud-depth-indicator">
+        <span class="hud-label">DEPTH SPECS</span>
+        <span class="hud-val"><span id="hud-depth-num">0</span>m</span>
+        <div class="hud-bar"><div class="hud-bar-fill" id="hud-bar-fill"></div></div>
+    </div>
+
+    <!-- Splitscreen Depth Zones Logs -->
     <div class="depth-log">
         
-        <!-- Depth Indicator Panel -->
-        <div class="depth-indicator">
-            <span class="depth-label">CURRENT DEPTH</span>
-            <span class="depth-value"><span id="depth-number">0</span> meters</span>
-        </div>
-
-        <!-- CONTENT SECTION 1: Sunlight Zone (Epipelagic) -->
+        <!-- SECTION 1: Sunlight Zone -->
         <section class="depth-section zone-sunlight" id="sunlight">
-            <!-- Bubbles background floating -->
             <div class="bubble bubble-1"></div>
             <div class="bubble bubble-2"></div>
-
-            <div class="section-container">
-                <div class="section-badge"><i class="fa-solid fa-sun"></i> 0 - 200m</div>
-                <h2>The Sunlight Zone</h2>
-                <span class="zone-scientific">Epipelagic Zone</span>
-                <p class="section-desc">This is the ocean's surface layer, home to 90% of all marine life. Here, sunlight is abundant, powering vast kelp forests and microscopic phytoplankton that generate over half of the Earth's oxygen.</p>
-                
-                <div class="card-features">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-water"></i>
-                        <span><strong>Pressure:</strong> 1 - 20 atm</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-temperature-half"></i>
-                        <span><strong>Temp:</strong> 12°C to 30°C</span>
+            
+            <div class="splitscreen">
+                <div class="split-left">
+                    <span class="section-num">01</span>
+                    <h2>The Sunlight<br><span class="accent-text">Zone</span></h2>
+                    <span class="scientific-name">Epipelagic Zone</span>
+                </div>
+                <div class="split-right">
+                    <div class="glass-card">
+                        <p class="card-p">The uppermost layer of the ocean extending down to 200 meters. Powered by solar radiation, this zone is home to phytoplankton, coral reefs, and the vast majority of marine biodiversity.</p>
+                        
+                        <div class="zone-details">
+                            <div class="detail-row">
+                                <span class="label">Depth Range</span>
+                                <span class="val">0 - 200 meters</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Light Level</span>
+                                <span class="val">100% Sunlight</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Primary Life</span>
+                                <span class="val">Kelp, Sharks, Tuna, Turtles</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Submarine float element that moves in the sunlight/twilight transition -->
-            <div class="submarine-container">
-                <svg class="sub-svg" viewBox="0 0 200 100" fill="#f59e0b">
-                    <rect x="40" y="30" width="120" height="40" rx="20" />
-                    <circle x="100" y="50" r="10" fill="#0f172a" />
-                    <rect x="95" y="10" width="10" height="20" />
-                    <line x1="100" y1="10" x2="110" y2="10" stroke="#f59e0b" stroke-width="4" />
-                    <path d="M160,40 L180,30 L180,70 L160,60 Z" /> <!-- Propeller -->
-                    <circle cx="70" cy="50" r="6" fill="#fff" />
-                    <circle cx="100" cy="50" r="6" fill="#fff" />
-                    <circle cx="130" cy="50" r="6" fill="#fff" />
-                </svg>
-            </div>
         </section>
 
-        <!-- CONTENT SECTION 2: Twilight Zone (Mesopelagic) -->
+        <!-- SECTION 2: Twilight Zone -->
         <section class="depth-section zone-twilight" id="twilight">
             <div class="bubble bubble-3"></div>
             <div class="bubble bubble-4"></div>
-
-            <div class="section-container">
-                <div class="section-badge"><i class="fa-solid fa-moon"></i> 200 - 1000m</div>
-                <h2>The Twilight Zone</h2>
-                <span class="zone-scientific">Mesopelagic Zone</span>
-                <p class="section-desc">Sunlight rapidly fades here, leaving only a dim blue glow. Photosynthesis is impossible, and the inhabitants are bizarre. Many creatures here migrate to the surface at night to feed in the largest migration on Earth.</p>
-                
-                <div class="card-features">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-water"></i>
-                        <span><strong>Pressure:</strong> Up to 100 atm</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-temperature-half"></i>
-                        <span><strong>Temp:</strong> 4°C to 12°C</span>
+            
+            <div class="splitscreen">
+                <div class="split-left">
+                    <span class="section-num">02</span>
+                    <h2>The Twilight<br><span class="accent-text">Zone</span></h2>
+                    <span class="scientific-name">Mesopelagic Zone</span>
+                </div>
+                <div class="split-right">
+                    <div class="glass-card">
+                        <p class="card-p">Fading from blue to indigo between 200 and 1,000 meters. Sunlight here is too dim to support photosynthesis, forcing creatures to adapt with massive eyes and bioluminescent lures.</p>
+                        
+                        <div class="zone-details">
+                            <div class="detail-row">
+                                <span class="label">Depth Range</span>
+                                <span class="val">200 - 1,000 meters</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Light Level</span>
+                                <span class="val">Dim Blue Glow (&lt; 1%)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Primary Life</span>
+                                <span class="val">Squids, Lanternfish, Jellyfish</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Glowing Jellyfish SVG floating in the twilight -->
-            <div class="jellyfish-container">
-                <svg class="jelly-svg" viewBox="0 0 100 150">
-                    <path d="M20,50 C20,20 80,20 80,50 C80,55 20,55 20,50 Z" fill="rgba(167, 139, 250, 0.75)" filter="drop-shadow(0 0 8px rgba(167, 139, 250, 0.8))" />
-                    <!-- Tentacles -->
-                    <path d="M30,52 C25,70 35,90 30,110 C27,125 33,140 30,150" stroke="rgba(167, 139, 250, 0.5)" stroke-width="2" fill="none" />
-                    <path d="M50,52 C45,80 55,100 50,120 C48,135 52,145 50,150" stroke="rgba(167, 139, 250, 0.6)" stroke-width="2.5" fill="none" />
-                    <path d="M70,52 C65,70 75,90 70,110 C67,125 73,140 70,150" stroke="rgba(167, 139, 250, 0.5)" stroke-width="2" fill="none" />
-                </svg>
             </div>
         </section>
 
-        <!-- CONTENT SECTION 3: Midnight Zone (Bathypelagic) -->
+        <!-- SECTION 3: Midnight Zone -->
         <section class="depth-section zone-midnight" id="midnight">
             <div class="bubble bubble-5"></div>
-
-            <div class="section-container">
-                <div class="section-badge"><i class="fa-solid fa-bahai"></i> 1000m+</div>
-                <h2>The Midnight Zone</h2>
-                <span class="zone-scientific">Bathypelagic Zone</span>
-                <p class="section-desc">Welcome to absolute dark. No sunlight ever reaches this depth. The water is near-freezing, and the pressure is crushing. Creatures here rely on bioluminescence—producing their own light—to capture prey and find mates.</p>
-                
-                <div class="card-features">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-water"></i>
-                        <span><strong>Pressure:</strong> 100+ atm (Crushing)</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-temperature-half"></i>
-                        <span><strong>Temp:</strong> 1°C to 4°C</span>
+            
+            <div class="splitscreen">
+                <div class="split-left">
+                    <span class="section-num">03</span>
+                    <h2>The Midnight<br><span class="accent-text">Zone</span></h2>
+                    <span class="scientific-name">Bathypelagic Zone</span>
+                </div>
+                <div class="split-right">
+                    <div class="glass-card">
+                        <p class="card-p">Encompassing everything below 1,000 meters in absolute black. The pressure is crushing (up to 8 tons per square inch) and the temperatures hover just above freezing, creating an alien evolutionary landscape.</p>
+                        
+                        <div class="zone-details">
+                            <div class="detail-row">
+                                <span class="label">Depth Range</span>
+                                <span class="val">1,000 - 4,000 meters</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Light Level</span>
+                                <span class="val">0% (Bioluminescence only)</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="label">Primary Life</span>
+                                <span class="val">Anglerfish, Giant Isopods, Vents</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Anglerfish SVG swimming in the pitch black -->
-            <div class="angler-container">
-                <svg class="angler-svg" viewBox="0 0 150 120">
-                    <!-- Stylized glow lure -->
-                    <circle cx="120" cy="20" r="5" fill="#22c55e" filter="drop-shadow(0 0 10px #22c55e)" />
-                    <path d="M60,60 C80,20 110,25 120,20" stroke="#22c55e" stroke-width="2" fill="none" />
-                    <!-- Body -->
-                    <path d="M20,60 C20,30 70,30 90,50 C110,65 100,90 80,95 C60,100 20,90 20,60 Z" fill="rgba(30, 41, 59, 0.95)" stroke="rgba(6, 182, 212, 0.3)" stroke-dasharray="4" />
-                    <!-- Teeth -->
-                    <path d="M90,52 L95,62 L100,52 L105,62 L110,52" stroke="#fff" stroke-width="2.5" fill="none" />
-                    <!-- Fin -->
-                    <path d="M10,60 L2,50 L2,70 Z" fill="rgba(30, 41, 59, 0.8)" />
-                </svg>
             </div>
         </section>
 
@@ -183,10 +215,10 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Deep Sea Descent Parallax Expedition. Exploring the final frontier on Earth.</p>
+        <p>&copy; 2026 Abyssal Expedition Parallax. All depths logged. Oceanic biodiversity protected.</p>
     </footer>
 
-    <!-- Parallax Script -->
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
